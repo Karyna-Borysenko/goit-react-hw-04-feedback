@@ -8,5 +8,5 @@ export const StatsItem = styled.li`
 `;
 
 export const AccentItem = styled.span`
-  color: darkblue;
+  color: #f69a73;
 `;

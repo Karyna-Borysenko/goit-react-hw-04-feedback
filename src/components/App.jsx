@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Statistics from './Statistics/Statistics';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Section from './Section/Section';
@@ -13,16 +14,8 @@ class App extends React.Component {
     bad: 0,
   };
 
-  handlerOnGoodClick = () => {
-    this.setState(prevState => ({ good: prevState.good + 1 }));
-  };
-
-  handlerOnNeutralClick = () => {
-    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-  };
-
-  handlerOnBadClick = () => {
-    this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  handlerClick = option => {
+    this.setState(prevState => ({ [option]: prevState[option] + 1 }));
   };
 
   countTotalFeedback() {
@@ -46,9 +39,8 @@ class App extends React.Component {
       <Container>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            onLeaveFeedback1={this.handlerOnGoodClick}
-            onLeaveFeedback2={this.handlerOnNeutralClick}
-            onLeaveFeedback3={this.handlerOnBadClick}
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.handlerClick}
           />
         </Section>
 
@@ -62,7 +54,7 @@ class App extends React.Component {
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
           ) : (
-            <Notification message="There is no feedback" />
+            <Notification message="There is no feedback... ☹️" />
           )}
         </Section>
       </Container>

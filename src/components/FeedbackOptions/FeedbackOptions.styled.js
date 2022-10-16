@@ -12,11 +12,11 @@ export const Button = styled.button`
   font-weight: bold;
   text-transform: uppercase;
   font-family: 'Roboto Condensed', Тahoma, sans-serif;
-  background: #337ab7;
+  background: #f69a73;
   cursor: pointer;
   border: 2px solid #bfe2ff;
   outline: 1px solid;
-  outline-color: #337ab7;
+  outline-color: #f69a73;
   outline-offset: 0px;
   text-shadow: none;
   transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
