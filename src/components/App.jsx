@@ -25,21 +25,18 @@ class App extends React.Component {
 
   countPositiveFeedbackPercentage() {
     const positiveFeedbackPercentage = Math.round(
-      (this.state.good /
-        (this.state.good + this.state.neutral + this.state.bad)) *
-        100
+      (this.state.good / this.countTotalFeedback()) * 100
     );
     return positiveFeedbackPercentage;
   }
 
   render() {
     const { good, neutral, bad } = this.state;
-
     return (
       <Container>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.handlerClick}
           />
         </Section>
