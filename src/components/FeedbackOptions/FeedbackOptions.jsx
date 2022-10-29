@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { nanoid } from 'nanoid';
-
 import PropTypes from 'prop-types';
 
 import { Button } from './FeedbackOptions.styled';
@@ -9,7 +7,7 @@ import { Button } from './FeedbackOptions.styled';
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <>
-      {options.map(option => {
+      {Object.keys(options).map(option => {
         return (
           <Button
             key={nanoid()}
@@ -27,6 +25,6 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 export default FeedbackOptions;
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  options: PropTypes.objectOf(PropTypes.number).isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
